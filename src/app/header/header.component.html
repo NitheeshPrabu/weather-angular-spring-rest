@@ -3,5 +3,23 @@
     <div class="navbar-header">
       <a [routerLink]="'/apis'" class="navbar-brand">Weather APIs</a>
     </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li style="padding: 15px">
+        <div class="onoffswitch">
+          <input
+            type="checkbox"
+            name="onoffswitch"
+            class="onoffswitch-checkbox"
+            id="myonoffswitch"
+            checked
+            (click)="setUnits()"
+          />
+          <label class="onoffswitch-label" for="myonoffswitch">
+            <span class="onoffswitch-inner"></span>
+            <span class="onoffswitch-switch"></span>
+          </label>
+        </div>
+      </li>
+    </ul>
   </div>
 </nav>

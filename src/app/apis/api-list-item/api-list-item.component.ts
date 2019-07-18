@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./api-list-item.component.css']
 })
 export class ApiListItemComponent implements OnInit {
-  @Input() id: number;
+  @Input() name: string;
 
   constructor() {}
 

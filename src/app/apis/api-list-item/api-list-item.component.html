@@ -2,7 +2,7 @@
   style="cursor: pointer;"
   class="list-group-item clearfix"
   routerLinkActive="active"
-  [routerLink]="[id]"
+  [routerLink]="[name]"
 >
-  <div>API {{ id }}</div>
+  <div>{{ name | titlecase }}</div>
 </a>

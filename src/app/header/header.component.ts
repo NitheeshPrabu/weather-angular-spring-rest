@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UnitsService } from '../shared/units.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  units = 'si';
 
-  constructor() { }
+  constructor(private unitsService: UnitsService) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  setUnits() {
+    this.units = this.units === 'si' ? 'us' : 'si';
+    this.unitsService.unitsChanged.next(this.units);
   }
-
 }

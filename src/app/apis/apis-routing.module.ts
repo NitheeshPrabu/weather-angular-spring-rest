@@ -11,7 +11,7 @@ const routes: Routes = [
     component: ApisComponent,
     children: [
       { path: '', component: ApiDefaultComponent },
-      { path: ':id', component: WeatherComponent }
+      { path: ':name', component: WeatherComponent }
     ]
   }
 ];
