@@ -1,0 +1,8 @@
+<div class="row">
+  <p>weather for API {{ id }} works!</p>
+  <div class="col-xs-12">
+    <div *ngFor="let forecast of weatherForecast">
+      <app-weather-item [weatherDetail]="forecast"></app-weather-item>
+    </div>
+  </div>
+</div>
