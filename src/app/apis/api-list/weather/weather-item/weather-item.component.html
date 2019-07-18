@@ -4,8 +4,10 @@
       <img src="/assets/{{ forecast.icon }}.png" alt="{{ forecast.icon }}" />
     </div>
     <div class="card-body">
-      <div class="lead">{{ forecast.icon.split('-').join(' ') | titlecase }}</div>
-      <div class="lead">
+      <div class="summary">
+        <p>{{ forecast.icon.split('-').join(' ') | titlecase }}</p>
+      </div>
+      <div class="temps">
         <span class="price-large">
           {{ forecast.temperatureMax | number: '1.1-1' }}º {{ tempUnit }}
         </span>

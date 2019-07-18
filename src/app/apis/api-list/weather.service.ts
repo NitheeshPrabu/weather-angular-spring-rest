@@ -56,24 +56,27 @@ export class WeatherService {
 
   fetchWeatherFromOpenweather(lat: number, long: number, units: string) {
     const key = '48000055c67428cf36ea0be23e1220bd';
-    return this.http
-      .get(
-        `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${key}/${lat},${long}?units=${units}`
-      )
-      .pipe(
-        map(response => {
-          return response['daily']['data'].splice(0, 5).map(day => {
-            return new Forecast(
-              day['icon'],
-              day['temperatureMax'],
-              day['temperatureMin'],
-              day['humidity'],
-              day['precipProbability'],
-              day['windSpeed']
-            );
-          });
-        })
-      );
+    return this.http.get('https://jsonplaceholder.typicode.com/todos/1').pipe(
+      map(response => {
+        // return response['daily']['data'].splice(0, 5).map(day => {
+        //   return new Forecast(
+        //     day['icon'],
+        //     day['temperatureMax'],
+        //     day['temperatureMin'],
+        //     day['humidity'],
+        //     day['precipProbability'],
+        //     day['windSpeed']
+        //   );
+        // });
+        return [
+          new Forecast('partly-cloudy-day', 35, 30, 2.5, 0.028, 2.14),
+          new Forecast('rain', 35, 30, 2.5, 0.028, 2.14),
+          new Forecast('rain', 35, 30, 2.5, 0.028, 2.14),
+          new Forecast('rain', 35, 30, 2.5, 0.028, 2.14),
+          new Forecast('rain', 35, 30, 2.5, 0.028, 2.14)
+        ];
+      })
+    );
   }
 
   fetchWeatherFromWeather2020(lat: number, long: number, units: string) {

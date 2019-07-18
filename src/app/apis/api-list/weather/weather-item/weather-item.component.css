@@ -83,6 +83,12 @@
 .card .card-body .lead {
   text-align: center;
   margin: 0;
+  height: 60px;
+}
+
+.temps {
+  text-align: center;
+  margin: 0;
 }
 
 @media (min-width: 768px) {
@@ -233,13 +239,13 @@
 .card-price .price-large {
   text-align: center;
   color: #337ab7;
-  font-size: 1.1em;
+  font-size: 2em;
   text-transform: uppercase;
 }
 
 .card-price .price-small {
   text-align: center;
-  font-size: 0.8em;
+  font-size: 1em;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -292,6 +298,20 @@
 
 .unit-small {
   font-size: 0.8em;
+}
+
+.summary {
+  display: table;
+  height: 60px;
+  width: 100%;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.summary p {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
 }
 
 /* tr > td:first-child {
