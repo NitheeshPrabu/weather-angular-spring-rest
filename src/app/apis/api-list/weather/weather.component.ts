@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { WeatherService } from '../weather.service';
-import { WeatherDetail } from './weather-detail.model';
-import { map } from 'rxjs/operators';
+import { Forecast } from './forecast.model';
+import { LocationService } from '../location.service';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-weather',
@@ -11,11 +12,12 @@ import { map } from 'rxjs/operators';
 })
 export class WeatherComponent implements OnInit {
   id: number;
-  weatherForecast: WeatherDetail[];
+  address: string;
+  forecasts: Forecast[];
 
   constructor(
     private weatherService: WeatherService,
-    private router: Router,
+    private locationService: LocationService,
     private route: ActivatedRoute
   ) {}
 
@@ -23,9 +25,15 @@ export class WeatherComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.id = +params.id;
     });
-    this.weatherService.fetchWeather().subscribe(weatherForecast => {
-      this.weatherForecast = weatherForecast;
-      console.log(this.weatherForecast);
+  }
+
+  getLocation() {
+    this.locationService.getLocation(this.address).subscribe(response => {
+      this.weatherService
+        .fetchWeather(this.id, response.lat, response.long)
+        .subscribe(forecasts => {
+          this.forecasts = forecasts;
+        });
     });
   }
 }

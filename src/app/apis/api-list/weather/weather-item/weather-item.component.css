@@ -70,6 +70,7 @@
 
 .card .card-body .lead {
   text-align: center;
+  height: 60px;
 }
 
 @media (min-width: 768px) {

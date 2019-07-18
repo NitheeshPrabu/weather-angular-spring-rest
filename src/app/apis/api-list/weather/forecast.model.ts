@@ -1,4 +1,4 @@
-export class WeatherDetail {
+export class Forecast {
   public summary: string;
   public temperatureMax: number;
   public temperatureMin: number;
