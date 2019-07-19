@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, filter } from 'rxjs/operators';
 import { Forecast } from './weather/forecast.model';
+import { Subject } from 'rxjs';
 
 interface DarkSkyForecast {
   icon: string;
@@ -59,6 +60,18 @@ interface Apixu {
   providedIn: 'root'
 })
 export class WeatherService {
+  public forecasts: Forecast[] = [];
+  public forecastsChanged = new Subject<Forecast[]>();
+
+  public getForecasts() {
+    return this.forecasts.slice();
+  }
+
+  public setForecasts(forecasts: Forecast[]) {
+    this.forecasts = forecasts;
+    this.forecastsChanged.next(this.forecasts.slice());
+  }
+
   constructor(private http: HttpClient) {}
 
   fetchWeather(name: string, lat: number, long: number, units: string) {

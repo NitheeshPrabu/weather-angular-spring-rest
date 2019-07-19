@@ -9,6 +9,7 @@ import { ApisRoutingModule } from './apis-routing.module';
 import { WeatherComponent } from './api-list/weather/weather.component';
 import { WeatherItemComponent } from './api-list/weather/weather-item/weather-item.component';
 import { ApiListItemComponent } from './api-list-item/api-list-item.component';
+import { CityComponent } from './api-list/city/city.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ApiListItemComponent } from './api-list-item/api-list-item.component';
     WeatherComponent,
     WeatherComponent,
     WeatherItemComponent,
-    ApiListItemComponent
+    ApiListItemComponent,
+    CityComponent
   ],
   imports: [CommonModule, FormsModule, ApisRoutingModule]
 })

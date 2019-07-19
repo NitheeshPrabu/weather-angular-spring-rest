@@ -1,0 +1,13 @@
+<div
+  class="col-xs-12"
+  style="background:transparent url(/assets/skyline3.jpg); background-size: contain; padding: 10px 10px; cursor: pointer;"
+  (click)="onClickCity()"
+>
+  <div class="card">
+    <div class="card-icon"></div>
+    <div class="card-body">
+      <span id="close" (click)="onDeleteCity()">x</span>
+      <div class="lead">{{ city.name | titlecase }}</div>
+    </div>
+  </div>
+</div>
