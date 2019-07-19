@@ -1,5 +1,6 @@
 export class Forecast {
-  public icon: string;
+  public imgPath: string;
+  public summary: string;
   public temperatureMax: number;
   public temperatureMin: number;
   public humidity: number;
@@ -7,14 +8,16 @@ export class Forecast {
   public wind: number;
 
   constructor(
-    icon: string,
+    imgPath: string,
+    summary: string,
     temperatureMax: number,
     temperatureMin: number,
     humidity: number,
     precipitation: number,
     wind: number
   ) {
-    this.icon = icon;
+    this.imgPath = imgPath;
+    this.summary = summary;
     this.temperatureMax = temperatureMax;
     this.temperatureMin = temperatureMin;
     this.humidity = humidity;

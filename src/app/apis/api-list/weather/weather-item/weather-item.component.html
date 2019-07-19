@@ -1,11 +1,11 @@
-<div class="col-xs-2">
+<div class="col-xs-2 col-5">
   <div class="card card-price">
     <div class="card-icon">
-      <img src="/assets/{{ forecast.icon }}.png" alt="{{ forecast.icon }}" />
+      <img src="{{ forecast.imgPath }}" />
     </div>
     <div class="card-body">
       <div class="summary">
-        <p>{{ forecast.icon.split('-').join(' ') | titlecase }}</p>
+        <p>{{ forecast.summary | titlecase }}</p>
       </div>
       <div class="temps">
         <span class="price-large">
@@ -13,20 +13,22 @@
         </span>
         <span class="price-small"> / {{ forecast.temperatureMin }}º {{ tempUnit }} </span>
       </div>
-      <div class="table">
+      <div class="details">
         <table>
           <tr>
             <td><b>Humidity:</b></td>
-            <td class="price">{{ forecast.humidity | number: '1.1-2' }}%</td>
+            <td class="price">
+              {{ forecast.humidity | number: '1.1-1' }}<span *ngIf="name == 'openweather'">%</span>
+            </td>
           </tr>
-          <tr>
+          <tr *ngIf="name !== 'openweather'">
             <td><b>Precipitation:</b></td>
-            <td class="price">{{ forecast.precipitation | number: '1.1-2' }}%</td>
+            <td class="price">{{ forecast.precipitation | number: '1.1-1' }}in</td>
           </tr>
           <tr>
             <td><b>WindSpeed:</b></td>
             <td class="price">
-              {{ forecast.wind | number: '1.1-2' }}
+              {{ forecast.wind | number: '1.1-1' }}
               <span class="unit-small">{{ windUnit }}</span>
             </td>
           </tr>
